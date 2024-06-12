@@ -4,7 +4,7 @@ import Image from "next/image";
 const Header = () => {
   return (
     <header className="h-16 px-8 flex justify-between items-center shadow">
-      <h1 className="font-extrabold text-xl text-main">
+      <h1 className="font-extrabold text-xl">
         <a href="/">Kunal Gala</a>
       </h1>
       {/* Icons */}
