@@ -15,7 +15,7 @@ const config: Config = {
         "dark-secondary": "#eef5ff",
       },
       backgroundImage: {
-        primary:
+        gradient:
           "linear-gradient(to right, rgb(53, 163, 210), rgb(141, 35, 143))",
         "fade-out":
           "linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 98%, rgba(255, 255, 255, 1) 100%)",
@@ -23,6 +23,30 @@ const config: Config = {
           "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 98%, rgba(12, 19, 29, 1) 100%)",
         rainbow:
           "linear-gradient(120deg, rgb(236, 97, 146), rgb(236, 76, 52), rgb(255, 189, 43), rgb(235, 222, 86), rgb(87, 199, 84), rgb(83, 161, 235))",
+      },
+      animation: {
+        typewriter: "typewriter 5s 2s steps(35) forwards",
+        caret: "blink 1s linear infinite, typewriter 5s 2s steps(35) forwards",
+      },
+      keyframes: {
+        typewriter: { to: { left: "100%" } },
+        blink: {
+          "0%": {
+            opacity: "0",
+          },
+          "0.1%": {
+            opacity: "1",
+          },
+          "50%": {
+            opacity: "1",
+          },
+          "50.1%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "0",
+          },
+        },
       },
     },
   },

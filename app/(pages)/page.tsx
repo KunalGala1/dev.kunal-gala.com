@@ -27,12 +27,14 @@ export default async function Home() {
           <p className="text-xl mt-4">Welcome...</p>
           <h1 className="text-4xl font-black">
             I&apos;m{" "}
-            <span className="bg-primary bg-clip-text text-transparent">
+            <span className="bg-gradient bg-clip-text text-transparent">
               Kunal Gala
             </span>
             ,
             <br />
-            Musician & Full-stack Web Developer
+            <span className="relative before:inset-0 before:absolute before:bg-white dark:before:bg-dark before:animate-typewriter after:absolute after:inset-0 after:w-0.5 after:animate-caret after:bg-primary dark:after:bg-secondary">
+              Musician & Full-stack Web Developer
+            </span>
           </h1>
 
           {/* Tech Skills Banner */}
