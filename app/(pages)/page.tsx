@@ -2,7 +2,7 @@ import { client } from "@/utils/sanity/client";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import Button from "@/components/Button";
-import ColorSplashes from "@/components/ColorSplashes";
+import ColorSplotches from "@/components/ColorSplotches";
 
 type TechSkills = {
   _key: string;
@@ -80,7 +80,7 @@ export default async function Home() {
           </div>
         </section>
       </main>
-      <ColorSplashes />
+      <ColorSplotches />
     </>
   );
 }
