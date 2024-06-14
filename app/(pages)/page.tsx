@@ -2,6 +2,7 @@ import { client } from "@/utils/sanity/client";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import Button from "@/components/Button";
+import ColorSplashes from "@/components/ColorSplashes";
 
 type TechSkills = {
   _key: string;
@@ -23,8 +24,8 @@ export default async function Home() {
       <main className="px-4 py-8">
         {/* Welcome */}
         <section>
-          <p className="text-xl">Welcome...</p>
-          <h1 className="text-2xl font-black">
+          <p className="text-xl mt-4">Welcome...</p>
+          <h1 className="text-4xl font-black">
             I&apos;m{" "}
             <span className="bg-main bg-clip-text text-transparent">
               Kunal Gala
@@ -79,6 +80,7 @@ export default async function Home() {
           </div>
         </section>
       </main>
+      <ColorSplashes />
     </>
   );
 }

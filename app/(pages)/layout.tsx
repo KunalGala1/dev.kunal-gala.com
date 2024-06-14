@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${mulish.className} text-main`}>
+      <body className={`${mulish.className} text-main overflow-x-hidden`}>
         <Header />
         {children}
         <Footer />
