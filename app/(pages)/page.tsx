@@ -1,4 +1,22 @@
-export default function Home() {
+import { client } from "@/utils/sanity/client";
+import Image from "next/image";
+import { PortableText } from "@portabletext/react";
+
+type TechSkills = {
+  _key: string;
+  name: string;
+  imageUrl: string;
+};
+
+export default async function Home() {
+  const techSkills = await client.fetch<TechSkills[]>(
+    `*[_type == "techSkillsBanner"][0]["listItems"][]{name, _key, "imageUrl": image.asset->url}`
+  );
+
+  const summary = await client.fetch(
+    `*[_type == "textBlocks" && title == "Summary"][0]{text}`
+  );
+
   return (
     <>
       <main className="px-4 py-8">
@@ -14,6 +32,31 @@ export default function Home() {
             <br />
             Musician & Full-stack Web Developer
           </h1>
+
+          {/* Tech Skills Banner */}
+          <div className="overflow-clip relative">
+            {/* Fade out overlay */}
+            <div className="absolute w-full h-full bg-fade-out"></div>
+
+            <ul className="flex items-center gap-4 py-8 w-max">
+              {techSkills.map((techSkill) => (
+                <li key={techSkill._key} className="flex items-center gap-2">
+                  <Image
+                    src={techSkill.imageUrl}
+                    width={32}
+                    height={32}
+                    alt={techSkill.name}
+                  />
+                  <span className="font-bold text-secondary">
+                    {techSkill.name}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Summary */}
+          <PortableText value={summary.text} />
         </section>
       </main>
     </>

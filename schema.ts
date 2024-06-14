@@ -1,7 +1,7 @@
 export const schemaTypes = [
   {
-    title: "Technology Skills Banner",
-    name: "technologySkillsBanner",
+    title: "Tech Skills Banner",
+    name: "techSkillsBanner",
     type: "document",
     fields: [
       { title: "Name", name: "name", type: "string" },
@@ -30,6 +30,15 @@ export const schemaTypes = [
           },
         ],
       },
+    ],
+  },
+  {
+    title: "Text Blocks",
+    name: "textBlocks",
+    type: "document",
+    fields: [
+      { title: "Title", name: "title", type: "string" },
+      { title: "Text", name: "text", type: "array", of: [{ type: "block" }] },
     ],
   },
 ];
