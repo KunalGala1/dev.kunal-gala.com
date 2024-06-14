@@ -9,7 +9,8 @@ type ButtonType = {
 const Button = ({ children, theme, effect }: ButtonType) => {
   const themeStyles = {
     dark: "bg-black text-white",
-    light: "bg-white outline outline-2 outline-secondary text-secondary",
+    light:
+      "bg-white dark:bg-transparent outline outline-2 outline-secondary text-secondary",
   };
 
   const effectStyles = {

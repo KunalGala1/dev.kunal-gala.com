@@ -27,7 +27,7 @@ export default async function Home() {
           <p className="text-xl mt-4">Welcome...</p>
           <h1 className="text-4xl font-black">
             I&apos;m{" "}
-            <span className="bg-main bg-clip-text text-transparent">
+            <span className="bg-primary bg-clip-text text-transparent">
               Kunal Gala
             </span>
             ,
@@ -38,7 +38,7 @@ export default async function Home() {
           {/* Tech Skills Banner */}
           <div className="overflow-clip relative">
             {/* Fade out overlay */}
-            <div className="absolute w-full h-full bg-fade-out"></div>
+            <div className="absolute w-full h-full bg-fade-out dark:bg-dark-fade-out"></div>
 
             <ul className="flex items-center gap-4 py-8 w-max">
               {techSkills.map((techSkill) => (

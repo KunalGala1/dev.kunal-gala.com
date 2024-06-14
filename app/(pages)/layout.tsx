@@ -19,7 +19,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${mulish.className} text-main overflow-x-hidden`}>
+      <body
+        className={`${mulish.className} text-primary dark:text-secondary overflow-x-hidden dark:bg-dark`}
+      >
         <ThemeProvider attribute="class">
           <Header />
           {children}
