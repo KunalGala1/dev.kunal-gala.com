@@ -6,7 +6,12 @@ export default function Home() {
         <section>
           <p className="text-xl">Welcome...</p>
           <h1 className="text-2xl font-black">
-            I&apos;m <span className="bg-main">Kunal Gala</span>,<br />
+            I&apos;m{" "}
+            <span className="bg-main bg-clip-text text-transparent">
+              Kunal Gala
+            </span>
+            ,
+            <br />
             Musician & Full-stack Web Developer
           </h1>
         </section>
