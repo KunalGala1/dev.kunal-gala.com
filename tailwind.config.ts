@@ -15,6 +15,8 @@ const config: Config = {
         main: "linear-gradient(to right, rgb(53, 163, 210), rgb(141, 35, 143))",
         "fade-out":
           "linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 98%, rgba(255, 255, 255, 1) 100%)",
+        rainbow:
+          "linear-gradient(120deg, rgb(236, 97, 146), rgb(236, 76, 52), rgb(255, 189, 43), rgb(235, 222, 86), rgb(87, 199, 84), rgb(83, 161, 235))",
       },
     },
   },

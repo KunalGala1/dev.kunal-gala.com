@@ -61,7 +61,9 @@ export default async function Home() {
 
           {/* Buttons */}
           <div className="flex gap-4 pt-7">
-            <Button theme="dark">Let&apos;s Work</Button>
+            <Button theme="dark" effect="rainbow-boxshadow">
+              Let&apos;s Work
+            </Button>
             <Button theme="light">Resume</Button>
           </div>
         </section>
