@@ -66,6 +66,17 @@ export default async function Home() {
             </Button>
             <Button theme="light">Resume</Button>
           </div>
+
+          {/* Hero */}
+          <div className="flex justify-center pt-16">
+            <Image
+              src={"/hero.jpg"}
+              width={300}
+              height={300}
+              alt="hero image"
+              className="rounded-full aspect-square object-cover object-center shadow-md"
+            />
+          </div>
         </section>
       </main>
     </>
