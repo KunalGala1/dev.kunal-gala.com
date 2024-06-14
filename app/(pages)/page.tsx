@@ -36,25 +36,27 @@ export default async function Home() {
           </h1>
 
           {/* Tech Skills Banner */}
-          <div className="overflow-clip relative">
+          <div className="relative">
             {/* Fade out overlay */}
-            <div className="absolute w-full h-full bg-fade-out dark:bg-dark-fade-out"></div>
+            <div className="absolute top-0 left-0 w-full h-full bg-fade-out dark:bg-dark-fade-out pointer-events-none select-none print:hidden"></div>
 
-            <ul className="flex items-center gap-4 py-8 w-max">
-              {techSkills.map((techSkill) => (
-                <li key={techSkill._key} className="flex items-center gap-2">
-                  <Image
-                    src={techSkill.imageUrl}
-                    width={32}
-                    height={32}
-                    alt={techSkill.name}
-                  />
-                  <span className="font-bold text-secondary">
-                    {techSkill.name}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <div className="w-full h-full overflow-x-auto no-scrollbar">
+              <ul className="flex items-center gap-4 py-8 w-max">
+                {techSkills.map((techSkill) => (
+                  <li key={techSkill._key} className="flex items-center gap-2">
+                    <Image
+                      src={techSkill.imageUrl}
+                      width={32}
+                      height={32}
+                      alt={techSkill.name}
+                    />
+                    <span className="font-bold text-secondary">
+                      {techSkill.name}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           {/* Summary */}
