@@ -1,6 +1,7 @@
 import { client } from "@/utils/sanity/client";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
+import Button from "@/components/Button";
 
 type TechSkills = {
   _key: string;
@@ -57,6 +58,12 @@ export default async function Home() {
 
           {/* Summary */}
           <PortableText value={summary.text} />
+
+          {/* Buttons */}
+          <div className="flex gap-4 pt-7">
+            <Button theme="dark">Let&apos;s Work</Button>
+            <Button theme="light">Resume</Button>
+          </div>
         </section>
       </main>
     </>
