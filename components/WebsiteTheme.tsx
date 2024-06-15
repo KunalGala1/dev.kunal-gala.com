@@ -33,15 +33,15 @@ const WebsiteTheme = () => {
           <svg viewBox="0 0 159 159" width={20} height={20} fill="none">
             <path
               stroke="#9AA3B0"
-              stroke-linecap="round"
-              stroke-width="14"
+              strokeLinecap="round"
+              strokeWidth="14"
               d="M28 79.5H7"
             />
             <circle cx="79.5" cy="80" r="35.5" fill="#192B45" />
             <path
               stroke="#9AA3B0"
-              stroke-linecap="round"
-              stroke-width="14"
+              strokeLinecap="round"
+              strokeWidth="14"
               d="M152 79.5h-21M79.5 28V7M79.5 152v-21M115.916 43.084l14.849-14.85M28.235 130.765l14.85-14.849M115.916 115.916l14.849 14.849M28.235 28.235l14.85 14.849"
             />
           </svg>

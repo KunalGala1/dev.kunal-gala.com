@@ -75,9 +75,22 @@ const slides = [
 ];
 
 const MadeWith = () => {
+  // todo: implement slider logic
+  const slider = () => {
+    setInterval(() => {
+      console.log("test");
+    }, 1000);
+  };
+
   return (
-    <div className="relative w-[93px] h-5 overflow-y-auto">
-      <ul className="absolute top-0 left-0 space-y-2">
+    <div className="relative w-[53px] h-5">
+      <div className="absolute -top-full flex items-center text-sm text-secondary">
+        incoming
+      </div>
+      <div className="absolute top-0 h-full flex items-center text-sm text-secondary">
+        current
+      </div>
+      {/* <ul className="absolute top-0 left-0 space-y-2">
         {slides.map((slide) => (
           <li className="flex items-center gap-2 justify-start">
             <span className="text-sm text-secondary">{slide.name}</span>
@@ -86,7 +99,7 @@ const MadeWith = () => {
             </span>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 };

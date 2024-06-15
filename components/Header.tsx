@@ -24,8 +24,8 @@ const Header = () => {
                 <path
                   stroke="#000"
                   className="dark:stroke-secondary"
-                  stroke-linecap="round"
-                  stroke-width="21"
+                  strokeLinecap="round"
+                  strokeWidth="21"
                   d="m148 151-41.394-41.394"
                 />
                 <circle
@@ -34,7 +34,7 @@ const Header = () => {
                   r="55"
                   stroke="#9AA3B0"
                   className="dark:stroke-white"
-                  stroke-width="20"
+                  strokeWidth="20"
                 />
               </svg>
             </a>
@@ -49,7 +49,7 @@ const Header = () => {
                 <path
                   stroke="#57697F"
                   className="dark:stroke-secondary"
-                  stroke-width="4"
+                  strokeWidth="4"
                   d="M0 2h32M0 18h48M16 34h32"
                 />
               </svg>
