@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import MadeWith from "./MadeWith";
 
 const Footer = () => {
   return (
@@ -35,7 +36,11 @@ const Footer = () => {
       <p className="text-secondary text-sm">
         &copy; {new Date().getFullYear()} Kunal Gala, All rights reserved.
       </p>
-      <p className="text-secondary text-sm">&lt;/&gt; with &#91;icon&#93;</p>
+
+      <div className="flex items-center gap-2">
+        <span className="text-secondary text-sm">&lt;/&gt; with</span>
+        <MadeWith />
+      </div>
     </footer>
   );
 };
