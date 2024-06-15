@@ -1,3 +1,5 @@
+"use client";
+import { useState, useEffect } from "react";
 import React from "react";
 
 const slides = [
@@ -76,19 +78,34 @@ const slides = [
 
 const MadeWith = () => {
   // todo: implement slider logic
-  const slider = () => {
-    setInterval(() => {
-      console.log("test");
+  const frames = ["active", "on-deck", "next"];
+  const [currentFrame, setCurrentFrame] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentFrame((prevFrame) => (prevFrame + 1) % frames.length);
     }, 1000);
-  };
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
-    <div className="relative w-[53px] h-5">
-      <div className="absolute -top-full flex items-center text-sm text-secondary">
-        incoming
+    <div className="relative w-[53px] h-5 overflow-y-clip">
+      <div
+        className={`absolute flex items-center h-5 text-sm text-secondary transition left-0 ${currentFrame === 0 ? "top-0" : currentFrame === 1 ? "bottom-[200%]" : currentFrame === 2 ? "bottom-full" : ""}`}
+      >
+        Next.js
       </div>
-      <div className="absolute top-0 h-full flex items-center text-sm text-secondary">
-        current
+      <div
+        className={`absolute flex items-center h-5 text-sm text-secondary transition left-0 ${currentFrame === 0 ? "bottom-full" : currentFrame === 1 ? "top-0" : currentFrame === 2 ? "bottom-[200%]" : ""}`}
+      >
+        TypeScript
+      </div>
+      <div
+        className={`absolute flex items-center h-5 text-sm text-secondary transition left-0 ${currentFrame === 0 ? "bottom-[200%]" : currentFrame === 1 ? "bottom-full" : currentFrame === 2 ? "top-0" : ""}`}
+      >
+        Tailwind
       </div>
       {/* <ul className="absolute top-0 left-0 space-y-2">
         {slides.map((slide) => (
