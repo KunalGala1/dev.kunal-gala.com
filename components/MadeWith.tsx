@@ -16,7 +16,7 @@ const MadeWith = () => {
       modules: [Autoplay],
       direction: "vertical",
       autoplay: {
-        delay: 3000,
+        delay: 4000,
       },
       loop: true,
     });

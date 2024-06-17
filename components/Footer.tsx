@@ -38,7 +38,9 @@ const Footer = () => {
       </p>
 
       <div className="flex items-center gap-1">
-        <span className="text-secondary text-sm">&lt;/&gt; with</span>
+        <span className="text-secondary text-sm w-[95px] text-end">
+          &lt;/&gt; with
+        </span>
 
         <MadeWith />
       </div>

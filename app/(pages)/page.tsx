@@ -32,8 +32,16 @@ export default async function Home() {
             </span>
             ,
             <br />
-            <span className="relative before:inset-0 before:absolute before:bg-white dark:before:bg-dark before:animate-typewriter after:absolute after:inset-0 after:w-0.5 after:animate-caret after:bg-primary dark:after:bg-secondary">
-              Musician & Full-stack Web Developer
+            <span
+              className={
+                "font-mono relative whitespace-nowrap text-lg " +
+                // Reveal text
+                "before:absolute before:h-full before:top-0 before:right-0 before:bg-white dark:before:bg-dark before:animate-typewriter " +
+                // Caret
+                "after:absolute after:h-full after:w-0.5 after:left-0 after:top-0 after:bg-primary dark:after:bg-secondary after:animate-caret"
+              }
+            >
+              Musician & Full-stack Web Developer.
             </span>
           </h1>
 
