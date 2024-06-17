@@ -37,7 +37,7 @@ const Footer = () => {
         &copy; {new Date().getFullYear()} Kunal Gala, All rights reserved.
       </p>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-1">
         <span className="text-secondary text-sm">&lt;/&gt; with</span>
 
         <MadeWith />
