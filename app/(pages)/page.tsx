@@ -10,6 +10,16 @@ type TechSkills = {
   imageUrl: string;
 };
 
+type Projects = {
+  _id: string;
+  name: string;
+  description: string;
+  imageUrl: string;
+  tags: string[];
+  year: string;
+  url: string;
+};
+
 export default async function Home() {
   const techSkills = await client.fetch<TechSkills[]>(
     `*[_type == "techSkillsBanner"][0]["listItems"][]{name, _key, "imageUrl": image.asset->url}`
@@ -17,6 +27,10 @@ export default async function Home() {
 
   const summary = await client.fetch(
     `*[_type == "textBlocks" && title == "Summary"][0]{text}`
+  );
+
+  const projects = await client.fetch<Projects[]>(
+    `*[_type == "projects"]{_id, name, description, "imageUrl": image.asset->url, tags, year, url}`
   );
 
   return (
@@ -98,6 +112,33 @@ export default async function Home() {
           <h2 className="text-black dark:text-white text-4xl font-bold">
             Checkout my work.
           </h2>
+          <div className="flex gap-8 overflow-x-scroll no-scrollbar">
+            {projects.map((project) => (
+              <div className="rounded">
+                <h3>{project.name}</h3>
+
+                {/* Tags */}
+                <div className="flex gap-2">
+                  {project.tags.map((tag) => (
+                    <span className="whitespace-nowrap text-sm rounded py-0.5 px-1.5 border border-gray-700/10 bg-gray-200/30 dark:bg-gray-900/20 dark:text-gray-50/80">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <p>{project.description}</p>
+
+                <div className="flex justify-between">
+                  <span>{project.year}</span>
+                  <span>
+                    <a href={project.url}>
+                      <FontAwesomeIcon icon="fa-solid fa-link" />
+                    </a>
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
       </main>
       <ColorSplotches />
