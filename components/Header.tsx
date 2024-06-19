@@ -19,7 +19,7 @@ const Header = () => {
         {/* Icons */}
         <ul className="flex gap-5">
           <li>
-            <a href="#">
+            <button>
               <svg viewBox="0 0 159 162" width={20} height={20} fill="none">
                 <path
                   stroke="#000"
@@ -37,14 +37,14 @@ const Header = () => {
                   strokeWidth="20"
                 />
               </svg>
-            </a>
+            </button>
           </li>
 
           <WebsiteTheme />
 
           {/* Burger */}
           <li>
-            <a href="#">
+            <button>
               <svg viewBox="0 0 48 36" width={20} height={20} fill="none">
                 <path
                   stroke="#57697F"
@@ -53,7 +53,7 @@ const Header = () => {
                   d="M0 2h32M0 18h48M16 34h32"
                 />
               </svg>
-            </a>
+            </button>
           </li>
         </ul>
       </header>

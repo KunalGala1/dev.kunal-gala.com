@@ -5,6 +5,7 @@ import Button from "@/components/Button";
 import ColorSplotches from "@/components/ColorSplotches";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 type TechSkills = {
   _key: string;
@@ -22,6 +23,20 @@ type Projects = {
   url: string;
 };
 
+const pastelGradients = {
+  0: "from-violet-300/75 to-purple-300/75 dark:from-violet-600/75 dark:to-purple-600/75",
+  1: "from-orange-300/75 to-rose-300/75 dark:from-orange-600/75 dark:to-rose-600/75",
+  2: "from-sky-300/75 to-sky-300/75 dark:from-sky-600/75 dark:to-sky-600/75",
+  3: "from-emerald-300/75 to-lime-300/75 dark:from-emerald-600/75 dark:to-lime-600/75",
+  4: "from-indigo-300/75 to-cyan-300/75 dark:from-indigo-600/75 dark:to-cyan-600/75",
+  5: "from-teal-300/75 to-violet-300/75 dark:from-teal-600/75 dark:to-violet-600/75",
+  6: "from-neutral-300/75 to-red-300/75 dark:from-neutral-600/75 dark:to-red-600/75",
+  7: "from-rose-300/75 to-fuchsia-300/75 dark:from-rose-600/75 dark:to-fuchsia-600/75",
+  8: "from-emerald-300/75 to-lime-300/75 dark:from-emerald-600/75 dark:to-lime-600/75",
+  9: "from-sky-300/75 to-purple-300/75 dark:from-sky-600/75 dark:to-purple-600/75",
+  default: "",
+};
+
 export default async function Home() {
   const techSkills = await client.fetch<TechSkills[]>(
     `*[_type == "techSkillsBanner"][0]["listItems"][]{name, _key, "imageUrl": image.asset->url}`
@@ -29,6 +44,10 @@ export default async function Home() {
 
   const summary = await client.fetch(
     `*[_type == "textBlocks" && title == "Summary"][0]{text}`
+  );
+
+  const bio = await client.fetch(
+    `*[_type == "textBlocks" && title == "Bio"][0]{text}`
   );
 
   const projects = await client.fetch<Projects[]>(
@@ -97,7 +116,7 @@ export default async function Home() {
           </div>
 
           {/* Hero */}
-          <div className="flex justify-center py-16">
+          <div className="flex flex-col items-center gap-8 justify-center py-16">
             <Image
               src={"/hero.jpg"}
               width={300}
@@ -105,6 +124,7 @@ export default async function Home() {
               alt="hero image"
               className="rounded-full aspect-square object-cover object-center shadow-md"
             />
+            <PortableText value={bio.text} />
           </div>
         </section>
 
@@ -114,15 +134,27 @@ export default async function Home() {
           <h2 className="text-black dark:text-white text-4xl font-bold">
             Checkout my work.
           </h2>
-          <div className="flex gap-8 overflow-x-scroll no-scrollbar">
-            {projects.map((project) => (
-              <div className="rounded">
-                <h3>{project.name}</h3>
+          <div className="flex gap-8 overflow-x-scroll no-scrollbar py-12 [&>*:nth-child(odd)]:rotate-2 [&>*:nth-child(even)]:-rotate-2 px-4">
+            {projects.map((project, index) => (
+              // Card
+              <div
+                className={`flex flex-col gap-2 rounded-xl h-[380px] w-[340px] min-w-[340px] p-4 shadow-xl bg-gradient-to-br border-gray-400/50 dark:border-gray-800/50 dark:text-white transition ${pastelGradients[index as keyof typeof pastelGradients] || pastelGradients.default}`}
+                key={project._id}
+              >
+                <Image
+                  src={project.imageUrl}
+                  width={308}
+                  height={160}
+                  alt="project screenshot"
+                  className="rounded-t-lg [mask-image:linear-gradient(180deg,#fff_16.35%,rgb(255_255_255_/_0%)_91.66%)]"
+                />
+
+                <h3 className="font-bold text-2xl">{project.name}</h3>
 
                 {/* Tags */}
-                <div className="flex gap-2">
+                <div className="flex overflow-x-scroll no-scrollbar gap-2">
                   {project.tags.map((tag) => (
-                    <span className="whitespace-nowrap text-sm rounded py-0.5 px-1.5 border border-gray-700/10 bg-gray-200/30 dark:bg-gray-900/20 dark:text-gray-50/80">
+                    <span className="whitespace-nowrap text-sm rounded py-0.5 px-1.5 border border-gray-700/10 bg-gray-200/30 dark:bg-gray-900/20 dark:text-gray-50/80 hover:bg-gray-200/60 select-none">
                       {tag}
                     </span>
                   ))}
@@ -130,12 +162,12 @@ export default async function Home() {
 
                 <p>{project.description}</p>
 
-                <div className="flex justify-between">
+                <div className="flex justify-between mt-auto">
                   <span>{project.year}</span>
                   <span>
-                    <a href={project.url}>
+                    <Link href={project.url} target="_blank">
                       <FontAwesomeIcon icon={faLink} />
-                    </a>
+                    </Link>
                   </span>
                 </div>
               </div>
