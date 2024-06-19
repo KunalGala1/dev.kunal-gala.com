@@ -3,6 +3,8 @@ import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import Button from "@/components/Button";
 import ColorSplotches from "@/components/ColorSplotches";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLink } from "@fortawesome/free-solid-svg-icons";
 
 type TechSkills = {
   _key: string;
@@ -132,7 +134,7 @@ export default async function Home() {
                   <span>{project.year}</span>
                   <span>
                     <a href={project.url}>
-                      <FontAwesomeIcon icon="fa-solid fa-link" />
+                      <FontAwesomeIcon icon={faLink} />
                     </a>
                   </span>
                 </div>
