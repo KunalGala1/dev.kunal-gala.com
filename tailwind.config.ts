@@ -13,6 +13,7 @@ const config: Config = {
         tertiary: "#57697F",
         dark: "#0C131D",
         "dark-secondary": "#eef5ff",
+        accent: "#35a3d2",
       },
       backgroundImage: {
         gradient:
@@ -25,9 +26,9 @@ const config: Config = {
           "linear-gradient(120deg, rgb(236, 97, 146), rgb(236, 76, 52), rgb(255, 189, 43), rgb(235, 222, 86), rgb(87, 199, 84), rgb(83, 161, 235))",
       },
       animation: {
-        typewriter: "typewriter 7s steps(36) 1s infinite alternate",
+        typewriter: "typewriter 4s steps(36) 1s infinite alternate",
         caret:
-          "typewriter 7s steps(36) 1s infinite alternate, blink 7s linear 1s infinite alternate",
+          "typewriter 4s steps(36) 1s infinite alternate, blink 4s linear 1s infinite alternate",
       },
       keyframes: {
         typewriter: {

@@ -16,7 +16,8 @@ const MadeWith = () => {
       modules: [Autoplay],
       direction: "vertical",
       autoplay: {
-        delay: 4000,
+        delay: 3000,
+        reverseDirection: true,
       },
       loop: true,
     });
@@ -29,13 +30,7 @@ const MadeWith = () => {
           <Image src={nextIcon} width={20} height={20} alt="Next.js icon" />
         </div>
         <div className="swiper-slide">
-          <span>TypeScript</span>
-          <Image
-            src={typescriptIcon}
-            width={20}
-            height={20}
-            alt="TypeScript icon"
-          />
+          <Image src={sanityIcon} width={50} height={20} alt="Sanity icon" />
         </div>
         <div className="swiper-slide">
           <span>Tailwind</span>
@@ -47,10 +42,13 @@ const MadeWith = () => {
           />
         </div>
         <div className="swiper-slide">
-          <Image src={sanityIcon} width={50} height={20} alt="Sanity icon" />
-        </div>
-        <div className="swiper-slide">
-          <span>❤️</span>
+          <span>TypeScript</span>
+          <Image
+            src={typescriptIcon}
+            width={20}
+            height={20}
+            alt="TypeScript icon"
+          />
         </div>
       </div>
     </div>

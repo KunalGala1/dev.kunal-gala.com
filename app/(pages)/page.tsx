@@ -34,7 +34,7 @@ export default async function Home() {
             <br />
             <span
               className={
-                "font-mono relative whitespace-nowrap text-lg " +
+                "relative whitespace-nowrap " +
                 // Reveal text
                 "before:absolute before:h-full before:top-0 before:right-0 before:bg-white dark:before:bg-dark before:animate-typewriter " +
                 // Caret
@@ -81,7 +81,7 @@ export default async function Home() {
           </div>
 
           {/* Hero */}
-          <div className="flex justify-center pt-16">
+          <div className="flex justify-center py-16">
             <Image
               src={"/hero.jpg"}
               width={300}
@@ -90,6 +90,14 @@ export default async function Home() {
               className="rounded-full aspect-square object-cover object-center shadow-md"
             />
           </div>
+        </section>
+
+        {/* Portfolio */}
+        <section>
+          <h1 className="text-accent font-semibold">Portfolio</h1>
+          <h2 className="text-black dark:text-white text-4xl font-bold">
+            Checkout my work.
+          </h2>
         </section>
       </main>
       <ColorSplotches />
