@@ -20,7 +20,8 @@
     "react": "^18",
     "react-dom": "^18",
     "sanity": "^3.46.1",
-    "swiper": "^11.1.4"
+    "swiper": "^11.1.4",
+    "typeit-react": "^2.7.1"
   },
   "devDependencies": {
     "@types/node": "^20",

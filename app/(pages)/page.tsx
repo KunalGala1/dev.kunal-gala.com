@@ -6,6 +6,7 @@ import ColorSplotches from "@/components/ColorSplotches";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import Typewriter from "@/components/Typewriter";
 
 type TechSkills = {
   _key: string;
@@ -68,17 +69,7 @@ export default async function Home() {
               </span>
               ,
               <br />
-              <span
-                className={
-                  "relative whitespace-nowrap " +
-                  // Reveal text
-                  "before:absolute before:h-full before:top-0 before:right-0 before:bg-white dark:before:bg-dark before:animate-typewriter " +
-                  // Caret
-                  "after:absolute after:h-full after:w-0.5 after:left-0 after:top-0 after:bg-primary dark:after:bg-secondary after:animate-caret"
-                }
-              >
-                Musician & Full-stack Web Developer.
-              </span>
+              <Typewriter />
             </h1>
             {/* Tech Skills Banner */}
             <div className="relative">
