@@ -56,85 +56,86 @@ export default async function Home() {
 
   return (
     <>
-      <main className="px-4 py-8">
-        {/* Welcome */}
-        <section>
-          <p className="text-xl mt-4">Welcome...</p>
-          <h1 className="text-4xl font-black">
-            I&apos;m{" "}
-            <span className="bg-gradient bg-clip-text text-transparent">
-              Kunal Gala
-            </span>
-            ,
-            <br />
-            <span
-              className={
-                "relative whitespace-nowrap " +
-                // Reveal text
-                "before:absolute before:h-full before:top-0 before:right-0 before:bg-white dark:before:bg-dark before:animate-typewriter " +
-                // Caret
-                "after:absolute after:h-full after:w-0.5 after:left-0 after:top-0 after:bg-primary dark:after:bg-secondary after:animate-caret"
-              }
-            >
-              Musician & Full-stack Web Developer.
-            </span>
-          </h1>
-
-          {/* Tech Skills Banner */}
-          <div className="relative">
-            {/* Fade out overlay */}
-            <div className="absolute top-0 left-0 w-full h-full bg-fade-out dark:bg-dark-fade-out pointer-events-none select-none print:hidden"></div>
-
-            <div className="w-full h-full overflow-x-auto no-scrollbar">
-              <ul className="flex items-center gap-4 py-8 w-max">
-                {techSkills.map((techSkill) => (
-                  <li key={techSkill._key} className="flex items-center gap-2">
-                    <Image
-                      src={techSkill.imageUrl}
-                      width={32}
-                      height={32}
-                      alt={techSkill.name}
-                    />
-                    <span className="font-bold text-secondary">
-                      {techSkill.name}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+      <main className="py-8">
+        <section className="px-4">
+          {/* Welcome */}
+          <section>
+            <p className="text-xl mt-4">Welcome...</p>
+            <h1 className="text-4xl font-black">
+              I&apos;m{" "}
+              <span className="bg-gradient bg-clip-text text-transparent">
+                Kunal Gala
+              </span>
+              ,
+              <br />
+              <span
+                className={
+                  "relative whitespace-nowrap " +
+                  // Reveal text
+                  "before:absolute before:h-full before:top-0 before:right-0 before:bg-white dark:before:bg-dark before:animate-typewriter " +
+                  // Caret
+                  "after:absolute after:h-full after:w-0.5 after:left-0 after:top-0 after:bg-primary dark:after:bg-secondary after:animate-caret"
+                }
+              >
+                Musician & Full-stack Web Developer.
+              </span>
+            </h1>
+            {/* Tech Skills Banner */}
+            <div className="relative">
+              {/* Fade out overlay */}
+              <div className="absolute top-0 left-0 w-full h-full bg-fade-out dark:bg-dark-fade-out pointer-events-none select-none print:hidden"></div>
+              <div className="w-full h-full overflow-x-auto no-scrollbar">
+                <ul className="flex items-center gap-4 py-8 w-max">
+                  {techSkills.map((techSkill) => (
+                    <li
+                      key={techSkill._key}
+                      className="flex items-center gap-2"
+                    >
+                      <Image
+                        src={techSkill.imageUrl}
+                        width={32}
+                        height={32}
+                        alt={techSkill.name}
+                      />
+                      <span className="font-bold text-secondary">
+                        {techSkill.name}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
-
-          {/* Summary */}
-          <PortableText value={summary.text} />
-
-          {/* Buttons */}
-          <div className="flex gap-4 pt-7">
-            <Button theme="dark" effect="rainbow-boxshadow">
-              Let&apos;s Work
-            </Button>
-            <Button theme="light">Resume</Button>
-          </div>
-
-          {/* Hero */}
-          <div className="flex flex-col items-center gap-8 justify-center py-16">
-            <Image
-              src={"/hero.jpg"}
-              width={300}
-              height={300}
-              alt="hero image"
-              className="rounded-full aspect-square object-cover object-center shadow-md"
-            />
-            <PortableText value={bio.text} />
-          </div>
+            {/* Summary */}
+            <PortableText value={summary.text} />
+            {/* Buttons */}
+            <div className="flex gap-4 pt-7">
+              <Button theme="dark" effect="rainbow-boxshadow">
+                Let&apos;s Work
+              </Button>
+              <Button theme="light">Resume</Button>
+            </div>
+            {/* Hero */}
+            <div className="flex flex-col items-center gap-8 justify-center py-16">
+              <Image
+                src={"/hero.jpg"}
+                width={300}
+                height={300}
+                alt="hero image"
+                className="rounded-full aspect-square object-cover object-center shadow-md"
+              />
+              <PortableText value={bio.text} />
+            </div>
+          </section>
         </section>
-
         {/* Portfolio */}
         <section>
-          <h1 className="text-accent font-semibold">Portfolio</h1>
-          <h2 className="text-black dark:text-white text-4xl font-bold">
-            Checkout my work.
-          </h2>
-          <div className="flex gap-8 overflow-x-scroll no-scrollbar py-12 [&>*:nth-child(odd)]:rotate-2 [&>*:nth-child(even)]:-rotate-2 px-4">
+          <div className="px-4">
+            <h1 className="text-accent font-semibold">Portfolio</h1>
+            <h2 className="text-black dark:text-white text-4xl font-bold">
+              Checkout my work.
+            </h2>
+          </div>
+          <div className="flex gap-8 overflow-x-scroll no-scrollbar px-8 py-12 [&>*:nth-child(odd)]:rotate-2 [&>*:nth-child(even)]:-rotate-2">
             {projects.map((project, index) => (
               // Card
               <div
@@ -148,9 +149,7 @@ export default async function Home() {
                   alt="project screenshot"
                   className="rounded-t-lg [mask-image:linear-gradient(180deg,#fff_16.35%,rgb(255_255_255_/_0%)_91.66%)]"
                 />
-
                 <h3 className="font-bold text-2xl">{project.name}</h3>
-
                 {/* Tags */}
                 <div className="flex overflow-x-scroll no-scrollbar gap-2">
                   {project.tags.map((tag) => (
@@ -159,9 +158,7 @@ export default async function Home() {
                     </span>
                   ))}
                 </div>
-
                 <p>{project.description}</p>
-
                 <div className="flex justify-between mt-auto">
                   <span>{project.year}</span>
                   <span>
@@ -175,6 +172,7 @@ export default async function Home() {
           </div>
         </section>
       </main>
+
       <ColorSplotches />
     </>
   );
