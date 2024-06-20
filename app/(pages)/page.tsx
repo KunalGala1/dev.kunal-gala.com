@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Typewriter from "@/components/Typewriter";
+import PortfolioNavButton from "@/components/PortfolioNavButton";
 
 type TechSkills = {
   _key: string;
@@ -121,16 +122,19 @@ export default async function Home() {
         {/* Portfolio */}
         <section>
           <div className="px-4">
-            <h1 className="text-accent font-semibold">Portfolio</h1>
+            <h1 className="text-accent font-semibold text-lg">Portfolio</h1>
             <h2 className="text-black dark:text-white text-4xl font-bold">
               Checkout my work.
             </h2>
           </div>
-          <div className="flex gap-8 overflow-x-scroll no-scrollbar px-8 py-12 [&>*:nth-child(odd)]:rotate-2 [&>*:nth-child(even)]:-rotate-2">
+          <div
+            className="flex gap-8 overflow-x-scroll no-scrollbar px-8 py-12 [&>*:nth-child(odd)]:rotate-2 [&>*:nth-child(even)]:-rotate-2 snap-x snap-mandatory"
+            id="portfolio-container"
+          >
             {projects.map((project, index) => (
               // Card
               <div
-                className={`flex flex-col gap-2 rounded-xl h-[380px] w-[340px] min-w-[340px] p-4 shadow-xl bg-gradient-to-br border-gray-400/50 dark:border-gray-800/50 dark:text-white transition ${pastelGradients[index as keyof typeof pastelGradients] || pastelGradients.default}`}
+                className={`flex flex-col gap-2 rounded-xl h-[380px] w-[340px] min-w-[340px] p-4 shadow-xl bg-gradient-to-br border-gray-400/50 dark:border-gray-800/50 dark:text-white transition ${pastelGradients[index as keyof typeof pastelGradients] || pastelGradients.default} snap-center`}
                 key={project._id}
               >
                 <Image
@@ -160,6 +164,12 @@ export default async function Home() {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Navigation */}
+          <div className="flex justify-between px-8">
+            <PortfolioNavButton direction="prev" />
+            <PortfolioNavButton direction="next" />
           </div>
         </section>
       </main>

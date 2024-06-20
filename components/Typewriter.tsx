@@ -18,11 +18,11 @@ const Typewriter = () => {
             getBeforeInit={(instance) => {
               instance
                 .pause(1500)
-                .type("a Juilliard-trained Musician...")
+                .type("a Juilliard-trained musician...")
                 .pause(1000)
                 .delete(100)
                 .pause(1000)
-                .type("& Full-stack Web Developer!")
+                .type("& full-stack web developer!")
                 .pause(3000)
                 .delete(100)
                 .pause(1500);
@@ -31,11 +31,11 @@ const Typewriter = () => {
           />
         ) : (
           <span className="min-h-10 rounded flex justify-center items-center gap-4">
-            <div className="h-3 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse w-[40%]"></div>
-            <div className="h-3 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse w-[15%]"></div>
-            <div className="h-3 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse w-1/3"></div>
-            <div className="h-3 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse w-1/5"></div>
-            <div className="h-3 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse w-1/6"></div>
+            <div className="h-4 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse w-[40%]"></div>
+            <div className="h-4 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse w-[15%]"></div>
+            <div className="h-4 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse w-1/3"></div>
+            <div className="h-4 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse w-1/5"></div>
+            <div className="h-4 rounded-full bg-gray-200 dark:bg-gray-800 animate-pulse w-1/6"></div>
           </span>
         )}
       </div>
