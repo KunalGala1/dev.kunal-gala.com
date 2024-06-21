@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import TypeIt from "typeit-react";
 
+// todo: fix cursor color on color-theme change (incorrectly retains initial color)
+
 const Typewriter = () => {
   const [mounted, setMounted] = useState(false);
 

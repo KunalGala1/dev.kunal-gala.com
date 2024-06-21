@@ -1,8 +1,11 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import WebsiteTheme from "./WebsiteTheme";
+import Burger from "./Burger";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <header
@@ -13,13 +16,14 @@ const Header = () => {
           "fixed w-full z-50 backdrop-blur bg-white/50 dark:bg-dark/50"
         }
       >
-        <h1 className="font-extrabold text-xl dark:text-dark-secondary">
+        <h1 className="font-extrabold text-xl dark:text-dark-secondary relative z-10">
           <a href="/">Kunal Gala</a>
         </h1>
         {/* Icons */}
         <ul className="flex gap-5">
+          {/* Search */}
           <li>
-            <button>
+            <button className="relative z-10">
               <svg viewBox="0 0 159 162" width={20} height={20} fill="none">
                 <path
                   stroke="#000"
@@ -42,19 +46,7 @@ const Header = () => {
 
           <WebsiteTheme />
 
-          {/* Burger */}
-          <li>
-            <button>
-              <svg viewBox="0 0 48 36" width={20} height={20} fill="none">
-                <path
-                  stroke="#57697F"
-                  className="dark:stroke-secondary"
-                  strokeWidth="4"
-                  d="M0 2h32M0 18h48M16 34h32"
-                />
-              </svg>
-            </button>
-          </li>
+          <Burger isOpen={isOpen} setIsOpen={setIsOpen} />
         </ul>
       </header>
 

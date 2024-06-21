@@ -15,7 +15,7 @@ const WebsiteTheme = () => {
   if (!mounted) {
     return (
       <li>
-        <div className="w-5 h-5 bg-slate-200 dark:bg-slate-800 rounded animate-pulse"></div>
+        <div className="w-6 h-6 bg-slate-200 dark:bg-slate-800 rounded-full animate-pulse"></div>
       </li>
     );
   }
@@ -28,6 +28,7 @@ const WebsiteTheme = () => {
           onClick={() => {
             setTheme("dark");
           }}
+          className="relative z-10"
         >
           <svg viewBox="0 0 159 159" width={20} height={20} fill="none">
             <path
@@ -55,6 +56,7 @@ const WebsiteTheme = () => {
           onClick={() => {
             setTheme("light");
           }}
+          className="relative z-10"
         >
           <svg viewBox="0 0 173 178" width={20} height={20} fill="none">
             <mask
