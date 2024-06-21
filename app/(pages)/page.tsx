@@ -88,6 +88,7 @@ export default async function Home() {
                         width={32}
                         height={32}
                         alt={techSkill.name}
+                        className="w-8 h-auto"
                       />
                       <span className="font-bold text-secondary">
                         {techSkill.name}
@@ -143,7 +144,7 @@ export default async function Home() {
                   width={308}
                   height={160}
                   alt="project screenshot"
-                  className="rounded-t-lg [mask-image:linear-gradient(180deg,#fff_16.35%,rgb(255_255_255_/_0%)_91.66%)]"
+                  className="rounded-t-lg [mask-image:linear-gradient(180deg,#fff_16.35%,rgb(255_255_255_/_0%)_91.66%)] w-full h-auto"
                 />
                 <h3 className="font-bold text-2xl">{project.name}</h3>
                 {/* Tags */}

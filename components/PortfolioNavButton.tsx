@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { debounce } from "lodash";
 
 type PortfolioNavButtonType = {
   direction: "prev" | "next";
@@ -16,7 +17,7 @@ const PortfolioNavButton = ({ direction }: PortfolioNavButtonType) => {
     if (!p_Container || !prevBtn || !nextBtn) return;
 
     p_Container.addEventListener("scroll", () => {
-      handleScroll({ p_Container, prevBtn, nextBtn });
+      debouncedHandleScroll({ p_Container, prevBtn, nextBtn });
     });
   }, []);
 
@@ -31,12 +32,28 @@ const PortfolioNavButton = ({ direction }: PortfolioNavButtonType) => {
     prevBtn,
     nextBtn,
   }: HandleScrollType): void => {
-    console.log(p_Container, prevBtn, nextBtn);
+    if (p_Container.scrollLeft === 0) {
+      // element is scrolled all the way to the left
+      setCarouselPosition("start");
+      return;
+    }
+    if (
+      p_Container.scrollLeft + p_Container.clientWidth >=
+      p_Container.scrollWidth - 1
+    ) {
+      // element is scrolled all the way to the left
+      setCarouselPosition("end");
+      return;
+    }
+    // element is not scrolled to either left or right
+    setCarouselPosition("middle");
   };
+
+  const debouncedHandleScroll = debounce(handleScroll, 300); // debounce the handleScroll function
 
   return (
     <button
-      className={`flex gap-2 text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 transition duration-75`}
+      className={`flex gap-2 text-slate-400 hover:text-slate-800 dark:hover:text-slate-100 transition duration-75 ${carouselPosition === "start" && direction === "prev" ? "opacity-40 select-none pointer-events-none" : ""} ${carouselPosition === "end" && direction === "next" ? "opacity-40 select-none pointer-events-none" : ""}`}
       id={`portfolio-container-${direction}-btn`}
       onClick={() => {
         const p_Container = document.getElementById("portfolio-container");
