@@ -6,7 +6,7 @@ interface BurgerProps {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const numberOfBars = 100;
+const numberOfBars = 30;
 
 const Burger: React.FC<BurgerProps> = ({ isOpen, setIsOpen }) => {
   return (
@@ -22,38 +22,40 @@ const Burger: React.FC<BurgerProps> = ({ isOpen, setIsOpen }) => {
           width={20}
           height={20}
           fill="none"
-          className={`transition duration-300 ${isOpen ? "scale-150" : ""}`}
+          className={`transition duration-500 ${isOpen ? "scale-150" : ""}`}
         >
           <path
             stroke="#57697F"
             strokeWidth="4"
             d="M0 2h32"
-            className={`transition duration-300 origin-[35%_10%] ${isOpen ? "translate-y-4 translate-x-2 rotate-45 stroke-accent" : ""}`}
+            className={`transition duration-500 origin-[35%_10%] ${isOpen ? "translate-y-4 translate-x-2 rotate-45 stroke-accent" : ""}`}
           />
           <path
             stroke="#57697F"
             strokeWidth="4"
             d="M0 18h48"
-            className={`transition duration-300 ${isOpen ? "opacity-0" : ""}`}
+            className={`transition duration-500 ${isOpen ? "opacity-0" : ""}`}
           />
           <path
             stroke="#57697F"
             strokeWidth="4"
             d="M16 34h32"
-            className={`transition duration-300 origin-[65%_90%] ${isOpen ? "-translate-y-4 -translate-x-2 -rotate-45 stroke-accent" : ""}`}
+            className={`transition duration-500 origin-[65%_90%] ${isOpen ? "-translate-y-4 -translate-x-2 -rotate-45 stroke-accent" : ""}`}
           />
         </svg>
       </button>
       {/* <nav
         className={`fixed transition ${isOpen ? "translate-y-0" : "-translate-y-full"} top-0 left-0 w-screen h-screen bg-slate-100 dark:bg-primary z-0`}
       ></nav> */}
-      <div className="flex fixed top-0 left-0 h-screen w-full">
+      <div
+        className={`flex fixed top-0 left-0 h-screen w-full ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
+      >
         {Array.from({ length: numberOfBars }, (_, index) => (
           <div
             key={index}
-            className={`transition top-0 h-full bg-red-200 outline outline-1 outline-slate-800/20 ${isOpen ? `translate-y-0` : `-translate-y-full`}`}
+            className={`transition-transform scale-110 rounded-full duration-[2000ms] top-0 h-full ${index % 2 == 0 ? "bg-slate-200 dark:bg-slate-800" : "bg-slate-300 dark:bg-slate-900"} ${isOpen ? `-translate-y-0` : `-translate-y-[110%]`}`}
             style={{
-              transitionDelay: `${index * 10}ms`,
+              transitionDelay: `${index * 20}ms`,
               width: `${100 / numberOfBars}%`,
             }}
           ></div>
