@@ -1,5 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import NavLink from "./NavLink";
 
 interface BurgerProps {
   isOpen: boolean;
@@ -44,16 +46,34 @@ const Burger: React.FC<BurgerProps> = ({ isOpen, setIsOpen }) => {
           />
         </svg>
       </button>
-      {/* <nav
-        className={`fixed transition ${isOpen ? "translate-y-0" : "-translate-y-full"} top-0 left-0 w-screen h-screen bg-slate-100 dark:bg-primary z-0`}
-      ></nav> */}
+      <nav
+        className={`fixed transition ${isOpen ? "delay-[1000ms] opacity-100 duration-500" : "opacity-0 delay-0 duration-100"} top-0 left-0 w-screen h-screen z-[5]`}
+      >
+        <ul className="mt-28 p-8">
+          <NavLink href={"/"} isOpen={isOpen} setIsOpen={setIsOpen}>
+            Home
+          </NavLink>
+          <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
+            About
+          </NavLink>
+          <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
+            Portfolio
+          </NavLink>
+          <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
+            Resume
+          </NavLink>
+          <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
+            Music Website
+          </NavLink>
+        </ul>
+      </nav>
       <div
         className={`flex fixed top-0 left-0 h-screen w-full ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
       >
         {Array.from({ length: numberOfBars }, (_, index) => (
           <div
             key={index}
-            className={`transition-transform scale-110 rounded-full duration-[2000ms] top-0 h-full ${index % 2 == 0 ? "bg-slate-200 dark:bg-slate-800" : "bg-slate-300 dark:bg-slate-900"} ${isOpen ? `-translate-y-0` : `-translate-y-[110%]`}`}
+            className={`transition-transform scale-110 rounded-full duration-[1000ms] top-0 h-full ${index % 2 == 0 ? "bg-slate-200 dark:bg-slate-800" : "bg-slate-300 dark:bg-slate-900"} ${isOpen ? `-translate-y-0` : `-translate-y-[110%]`}`}
             style={{
               transitionDelay: `${index * 20}ms`,
               width: `${100 / numberOfBars}%`,
