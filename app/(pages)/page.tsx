@@ -114,6 +114,7 @@ export default async function Home() {
                 height={300}
                 alt="hero image"
                 className="rounded-full aspect-square object-cover object-center shadow-md"
+                priority
               />
               <PortableText value={bio.text} />
             </div>
@@ -147,8 +148,11 @@ export default async function Home() {
                 <h3 className="font-bold text-2xl">{project.name}</h3>
                 {/* Tags */}
                 <div className="flex overflow-x-scroll no-scrollbar gap-2">
-                  {project.tags.map((tag) => (
-                    <span className="whitespace-nowrap text-sm rounded py-0.5 px-1.5 border border-gray-700/10 bg-gray-200/30 dark:bg-gray-900/20 dark:text-gray-50/80 hover:bg-gray-200/60 select-none">
+                  {project.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="whitespace-nowrap text-sm rounded py-0.5 px-1.5 border border-gray-700/10 bg-gray-200/30 dark:bg-gray-900/20 dark:text-gray-50/80 hover:bg-gray-200/60 select-none"
+                    >
                       {tag}
                     </span>
                   ))}

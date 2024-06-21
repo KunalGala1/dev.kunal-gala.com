@@ -18,14 +18,13 @@ const Typewriter = () => {
             getBeforeInit={(instance) => {
               instance
                 .pause(1500)
-                .type("a Juilliard-trained musician...")
+                .type("a Juilliard-trained musician.")
                 .pause(1000)
                 .delete(100)
                 .pause(1000)
-                .type("& full-stack web developer!")
+                .type("a front-end web developer.")
                 .pause(3000)
-                .delete(100)
-                .pause(1500);
+                .delete(100);
               return instance;
             }}
           />
