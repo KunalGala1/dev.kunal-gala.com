@@ -47,7 +47,7 @@ const Burger: React.FC<BurgerProps> = ({ isOpen, setIsOpen }) => {
         </svg>
       </button>
       <nav
-        className={`fixed transition ${isOpen ? "delay-[1000ms] opacity-100 duration-500" : "opacity-0 delay-0 duration-100"} top-0 left-0 w-screen h-screen z-[5]`}
+        className={`fixed transition-opacity ${isOpen ? "delay-[1000ms] opacity-100 duration-500 pointer-events-auto" : "opacity-0 delay-0 duration-100 pointer-events-none"} top-0 left-0 w-screen h-screen z-[5]`}
       >
         <ul className="mt-28 p-8">
           <NavLink href={"/"} isOpen={isOpen} setIsOpen={setIsOpen}>
