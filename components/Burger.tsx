@@ -1,8 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import NavLink from "./NavLink";
-import { link } from "fs";
+import Nav from "./Nav";
 
 interface BurgerProps {
   isOpen: boolean;
@@ -47,58 +46,9 @@ const Burger: React.FC<BurgerProps> = ({ isOpen, setIsOpen }) => {
           />
         </svg>
       </button>
-      <nav
-        className={`fixed ${isOpen ? "pointer-events-auto" : "pointer-events-none"} top-0 left-0 w-screen h-screen z-[5]`}
-      >
-        <ul className="px-8 py-4 mt-16 space-y-4">
-          <NavLink
-            href="/"
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            index={0}
-            icon={"faHouse"}
-          >
-            Home
-          </NavLink>
-          <NavLink
-            index={1}
-            href="#"
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            icon={"faBook"}
-          >
-            About
-          </NavLink>
-          <NavLink
-            index={2}
-            href="#"
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            icon={"faBriefcase"}
-          >
-            Portfolio
-          </NavLink>
-          <NavLink
-            index={3}
-            href="#"
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            icon={"faFile"}
-          >
-            Resume
-          </NavLink>
-          <NavLink
-            index={4}
-            href="https://kunal-gala.com/"
-            target={"_blank"}
-            isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            icon={"faLink"}
-          >
-            Music Website
-          </NavLink>
-        </ul>
-      </nav>
+
+      <Nav isOpen={isOpen} setIsOpen={setIsOpen} />
+
       <div
         className={`flex fixed top-0 left-0 h-screen w-full ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
       >
