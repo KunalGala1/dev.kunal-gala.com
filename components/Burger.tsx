@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import NavLink from "./NavLink";
+import { link } from "fs";
 
 interface BurgerProps {
   isOpen: boolean;
@@ -47,22 +48,53 @@ const Burger: React.FC<BurgerProps> = ({ isOpen, setIsOpen }) => {
         </svg>
       </button>
       <nav
-        className={`fixed transition-opacity ${isOpen ? "delay-[1000ms] opacity-100 duration-500 pointer-events-auto" : "opacity-0 delay-0 duration-100 pointer-events-none"} top-0 left-0 w-screen h-screen z-[5]`}
+        className={`fixed ${isOpen ? "pointer-events-auto" : "pointer-events-none"} top-0 left-0 w-screen h-screen z-[5]`}
       >
-        <ul className="mt-28 p-8">
-          <NavLink href={"/"} isOpen={isOpen} setIsOpen={setIsOpen}>
+        <ul className="px-8 py-4 mt-16 space-y-4">
+          <NavLink
+            href="/"
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            index={0}
+            icon={"faHouse"}
+          >
             Home
           </NavLink>
-          <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
+          <NavLink
+            index={1}
+            href="#"
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            icon={"faBook"}
+          >
             About
           </NavLink>
-          <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
+          <NavLink
+            index={2}
+            href="#"
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            icon={"faBriefcase"}
+          >
             Portfolio
           </NavLink>
-          <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
+          <NavLink
+            index={3}
+            href="#"
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            icon={"faFile"}
+          >
             Resume
           </NavLink>
-          <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
+          <NavLink
+            index={4}
+            href="https://kunal-gala.com/"
+            target={"_blank"}
+            isOpen={isOpen}
+            setIsOpen={setIsOpen}
+            icon={"faLink"}
+          >
             Music Website
           </NavLink>
         </ul>
@@ -73,7 +105,7 @@ const Burger: React.FC<BurgerProps> = ({ isOpen, setIsOpen }) => {
         {Array.from({ length: numberOfBars }, (_, index) => (
           <div
             key={index}
-            className={`transition-transform scale-110 rounded-full duration-[1000ms] top-0 h-full ${index % 2 == 0 ? "bg-slate-200 dark:bg-slate-800" : "bg-slate-300 dark:bg-slate-900"} ${isOpen ? `-translate-y-0` : `-translate-y-[110%]`}`}
+            className={`transition-transform scale-110 rounded-full duration-500 top-0 h-full ${index % 2 == 0 ? "bg-slate-200 dark:bg-slate-800" : "bg-slate-300 dark:bg-slate-900"} ${isOpen ? `-translate-y-0` : `-translate-y-[110%]`}`}
             style={{
               transitionDelay: `${index * 20}ms`,
               width: `${100 / numberOfBars}%`,

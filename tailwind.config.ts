@@ -14,6 +14,7 @@ const config: Config = {
         dark: "#0C131D",
         "dark-secondary": "#eef5ff",
         accent: "#35a3d2",
+        vibrant: "#244068",
       },
       backgroundImage: {
         gradient:
@@ -24,6 +25,9 @@ const config: Config = {
           "linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 98%, rgba(12, 19, 29, 1) 100%)",
         rainbow:
           "linear-gradient(120deg, rgb(236, 97, 146), rgb(236, 76, 52), rgb(255, 189, 43), rgb(235, 222, 86), rgb(87, 199, 84), rgb(83, 161, 235))",
+      },
+      transitionProperty: {
+        notcolors: "opacity, transform",
       },
     },
   },
