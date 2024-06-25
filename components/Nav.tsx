@@ -9,6 +9,7 @@ import {
   faFile,
   faMusic,
 } from "@fortawesome/free-solid-svg-icons";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 interface NavProps {
   isOpen: boolean;
@@ -62,34 +63,30 @@ const Nav: React.FC<NavProps> = ({ isOpen, setIsOpen }) => {
     >
       <ul className="px-8 py-4 mt-16 space-y-4">
         <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
-          <FontAwesomeIcon
-            icon={faHouse}
-            className={`transition-transform ${isOpen ? "translate-x-0" : "-translate-x-16"}`}
-          />
+          <Icon isOpen={isOpen}>
+            <FontAwesomeIcon icon={faHouse} />
+          </Icon>
           <Hr isOpen={isOpen} />
           <Span isOpen={isOpen}>Home</Span>
         </NavLink>
         <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
-          <FontAwesomeIcon
-            icon={faBook}
-            className={`transition-transform ${isOpen ? "translate-x-0" : "-translate-x-16"}`}
-          />
+          <Icon isOpen={isOpen}>
+            <FontAwesomeIcon icon={faBook} />
+          </Icon>
           <Hr isOpen={isOpen} />
           <Span isOpen={isOpen}>About</Span>
         </NavLink>
         <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
-          <FontAwesomeIcon
-            icon={faBriefcase}
-            className={`transition-transform ${isOpen ? "translate-x-0" : "-translate-x-16"}`}
-          />
+          <Icon isOpen={isOpen}>
+            <FontAwesomeIcon icon={faBriefcase} />
+          </Icon>
           <Hr isOpen={isOpen} />
           <Span isOpen={isOpen}>Portfolio</Span>
         </NavLink>
         <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
-          <FontAwesomeIcon
-            icon={faFile}
-            className={`transition-transform ${isOpen ? "translate-x-0" : "-translate-x-16"}`}
-          />
+          <Icon isOpen={isOpen}>
+            <FontAwesomeIcon icon={faFile} />
+          </Icon>
           <Hr isOpen={isOpen} />
           <Span isOpen={isOpen}>Resume</Span>
         </NavLink>
@@ -99,10 +96,9 @@ const Nav: React.FC<NavProps> = ({ isOpen, setIsOpen }) => {
           setIsOpen={setIsOpen}
           target={"_blank"}
         >
-          <FontAwesomeIcon
-            icon={faMusic}
-            className={`transition-transform ${isOpen ? "translate-x-0" : "-translate-x-16"}`}
-          />
+          <Icon isOpen={isOpen}>
+            <FontAwesomeIcon icon={faMusic} />
+          </Icon>
           <Hr isOpen={isOpen} /> <Span isOpen={isOpen}>Music</Span>
         </NavLink>
       </ul>
@@ -131,7 +127,7 @@ const NavLink: React.FC<NavLinkProps> = ({
     <Link
       href={href}
       className={
-        "flex items-center gap-2 font-black text-xl hover:text-accent hover:outline outline-accent outline-1 p-2 rounded-md hover:bg-accent/10" +
+        "flex items-center gap-4 font-black text-xl hover:text-accent hover:outline outline-accent outline-1 p-2 rounded-md hover:bg-accent/10" +
         " " +
         `transition-opacity ${isOpen ? "" : "opacity-0 !delay-0"}`
       }
@@ -145,13 +141,26 @@ const NavLink: React.FC<NavLinkProps> = ({
   </li>
 );
 
+interface IconProps {
+  isOpen: boolean;
+  children: React.ReactNode;
+}
+
+const Icon: React.FC<IconProps> = ({ isOpen, children }) => (
+  <div
+    className={`transition-transform ${isOpen ? "translate-x-0" : "-translate-x-16"}`}
+  >
+    {children}
+  </div>
+);
+
 interface HrProps {
   isOpen: boolean;
 }
 
 const Hr: React.FC<HrProps> = ({ isOpen }) => (
   <div
-    className={`flex flex-1 gap-1 sm:gap-2 justify-around transition-transform ${isOpen ? "scale-100" : "scale-90"}`}
+    className={`flex flex-1 gap-1 sm:gap-2 justify-around transition-transform ${isOpen ? "scale-100" : "scale-90"} hidden`}
   >
     {Array.from({ length: 10 }, (_, index) => (
       <span className="font-thin" key={index}>
