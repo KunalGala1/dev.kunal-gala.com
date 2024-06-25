@@ -40,7 +40,7 @@ const Nav: React.FC<NavProps> = ({ isOpen, setIsOpen }) => {
         }
 
         if (div) {
-          div.style.transitionDelay = transitionDelay;
+          // div.style.transitionDelay = transitionDelay;
         }
 
         if (span) {
@@ -66,28 +66,28 @@ const Nav: React.FC<NavProps> = ({ isOpen, setIsOpen }) => {
           <Icon isOpen={isOpen}>
             <FontAwesomeIcon icon={faHouse} />
           </Icon>
-          <Hr isOpen={isOpen} />
+          <DividerLine isOpen={isOpen} />
           <Span isOpen={isOpen}>Home</Span>
         </NavLink>
         <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
           <Icon isOpen={isOpen}>
             <FontAwesomeIcon icon={faBook} />
           </Icon>
-          <Hr isOpen={isOpen} />
+          <DividerLine isOpen={isOpen} />
           <Span isOpen={isOpen}>About</Span>
         </NavLink>
         <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
           <Icon isOpen={isOpen}>
             <FontAwesomeIcon icon={faBriefcase} />
           </Icon>
-          <Hr isOpen={isOpen} />
+          <DividerLine isOpen={isOpen} />
           <Span isOpen={isOpen}>Portfolio</Span>
         </NavLink>
         <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
           <Icon isOpen={isOpen}>
             <FontAwesomeIcon icon={faFile} />
           </Icon>
-          <Hr isOpen={isOpen} />
+          <DividerLine isOpen={isOpen} />
           <Span isOpen={isOpen}>Resume</Span>
         </NavLink>
         <NavLink
@@ -99,7 +99,7 @@ const Nav: React.FC<NavProps> = ({ isOpen, setIsOpen }) => {
           <Icon isOpen={isOpen}>
             <FontAwesomeIcon icon={faMusic} />
           </Icon>
-          <Hr isOpen={isOpen} /> <Span isOpen={isOpen}>Music</Span>
+          <DividerLine isOpen={isOpen} /> <Span isOpen={isOpen}>Music</Span>
         </NavLink>
       </ul>
     </nav>
@@ -127,7 +127,7 @@ const NavLink: React.FC<NavLinkProps> = ({
     <Link
       href={href}
       className={
-        "flex items-center gap-4 font-black text-xl hover:text-accent hover:outline outline-accent outline-1 p-2 rounded-md hover:bg-accent/10" +
+        "group flex items-center justify-center gap-4 font-black text-xl hover:text-accent hover:outline outline-accent outline-1 p-2 rounded-lg hover:bg-accent/10" +
         " " +
         `transition-opacity ${isOpen ? "" : "opacity-0 !delay-0"}`
       }
@@ -148,26 +148,24 @@ interface IconProps {
 
 const Icon: React.FC<IconProps> = ({ isOpen, children }) => (
   <div
-    className={`transition-transform ${isOpen ? "translate-x-0" : "-translate-x-16"}`}
+    className={
+      `transition-transform ${isOpen ? "translate-x-0" : "-translate-x-16"}` +
+      " " +
+      "w-1/2 flex justify-end"
+    }
   >
     {children}
   </div>
 );
 
-interface HrProps {
+interface DividerLineProps {
   isOpen: boolean;
 }
 
-const Hr: React.FC<HrProps> = ({ isOpen }) => (
-  <div
-    className={`flex flex-1 gap-1 sm:gap-2 justify-around transition-transform ${isOpen ? "scale-100" : "scale-90"} hidden`}
-  >
-    {Array.from({ length: 10 }, (_, index) => (
-      <span className="font-thin" key={index}>
-        _
-      </span>
-    ))}
-  </div>
+const DividerLine: React.FC<DividerLineProps> = ({ isOpen }) => (
+  <>
+    <div className="w-0.5 h-12 opacity-80 rounded-full bg-primary dark:bg-secondary group-hover:bg-accent group-dark:hover:bg-accent"></div>
+  </>
 );
 
 interface SpanProps {
@@ -177,7 +175,11 @@ interface SpanProps {
 
 const Span: React.FC<SpanProps> = ({ isOpen, children }) => (
   <span
-    className={`transition-transform ${isOpen ? "translate-x-0" : "translate-x-16"}`}
+    className={
+      `transition-transform ${isOpen ? "translate-x-0" : "translate-x-16"}` +
+      " " +
+      "w-1/2"
+    }
   >
     {children}
   </span>
