@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import WebsiteTheme from "./WebsiteTheme";
 import Burger from "./Burger";
+import Medium_Nav from "./Medium_Nav";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,6 +20,9 @@ const Header = () => {
         <h1 className="font-extrabold text-xl dark:text-dark-secondary relative z-10">
           <a href="/">Kunal Gala</a>
         </h1>
+
+        <Medium_Nav />
+
         {/* Icons */}
         <ul className="flex gap-5">
           {/* Search */}

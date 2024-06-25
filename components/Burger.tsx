@@ -12,7 +12,7 @@ const numberOfBars = 30;
 
 const Burger: React.FC<BurgerProps> = ({ isOpen, setIsOpen }) => {
   return (
-    <li className="relative">
+    <li className="relative md:hidden">
       <button
         onClick={() => {
           setIsOpen(!isOpen);
