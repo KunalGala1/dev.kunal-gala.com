@@ -59,11 +59,11 @@ export default async function Home() {
   return (
     <>
       <main className="py-8">
-        <section className="px-4">
+        <section className="px-4 max-w-screen-sm lg:max-w-screen-md mx-auto">
           {/* Welcome */}
           <section>
-            <p className="text-xl mt-4">Welcome...</p>
-            <h1 className="text-4xl font-black">
+            <p className="text-xl md:text-2xl lg:text-3xl mt-4">Welcome...</p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black">
               I&apos;m{" "}
               <span className="bg-gradient bg-clip-text text-transparent">
                 Kunal Gala
@@ -73,11 +73,11 @@ export default async function Home() {
               <Typewriter />
             </h1>
             {/* Tech Skills Banner */}
-            <div className="relative">
+            <div className="relative md:border-l lg:border-none dark:border-tertiary my-8">
               {/* Fade out overlay */}
               <div className="absolute top-0 left-0 w-full h-full bg-fade-out dark:bg-dark-fade-out pointer-events-none select-none print:hidden"></div>
               <div className="w-full h-full overflow-x-auto no-scrollbar">
-                <ul className="flex items-center gap-4 py-8 w-max">
+                <ul className="flex items-center gap-4 w-max md:pl-2 lg:pl-0">
                   {techSkills.map((techSkill) => (
                     <li
                       key={techSkill._key}
@@ -85,10 +85,10 @@ export default async function Home() {
                     >
                       <Image
                         src={techSkill.imageUrl}
-                        width={32}
-                        height={32}
+                        width={20}
+                        height={20}
                         alt={techSkill.name}
-                        className="w-8 h-auto"
+                        className="h-5 w-auto"
                       />
                       <span className="font-bold text-secondary">
                         {techSkill.name}
@@ -121,9 +121,10 @@ export default async function Home() {
             </div>
           </section>
         </section>
+
         {/* Portfolio */}
         <section>
-          <div className="px-4">
+          <div className="px-4 max-w-screen-sm lg:max-w-screen-md mx-auto">
             <h1 className="text-accent font-semibold text-lg">Portfolio</h1>
             <h2 className="text-black dark:text-white text-4xl font-bold">
               Checkout my work.
@@ -172,7 +173,7 @@ export default async function Home() {
           </div>
 
           {/* Navigation */}
-          <div className="flex justify-between px-8">
+          <div className="flex justify-between px-8 max-w-screen-sm lg:max-w-screen-md mx-auto">
             <PortfolioNavButton direction="prev" />
             <PortfolioNavButton direction="next" />
           </div>
