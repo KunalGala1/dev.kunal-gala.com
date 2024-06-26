@@ -38,3 +38,4 @@ next-env.d.ts
 # Docker
 Dockerfile
 .dockerignore
+compose.yaml
