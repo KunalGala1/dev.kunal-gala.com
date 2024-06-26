@@ -2,6 +2,7 @@ import { client } from "@/utils/sanity/client";
 import Image from "next/image";
 import { PortableText } from "@portabletext/react";
 import Button from "@/components/Button";
+import LinkButton from "@/components/LinkButton";
 import ColorSplotches from "@/components/ColorSplotches";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
@@ -59,7 +60,7 @@ export default async function Home() {
   return (
     <>
       <main className="py-8">
-        <section className="px-4 max-w-screen-sm lg:max-w-screen-md mx-auto">
+        <section className="px-4 max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto">
           {/* Welcome */}
           <section>
             <p className="text-xl md:text-2xl lg:text-3xl mt-4">Welcome...</p>
@@ -102,10 +103,16 @@ export default async function Home() {
             <PortableText value={summary.text} />
             {/* Buttons */}
             <div className="flex gap-4 pt-7">
-              <Button theme="dark" effect="rainbow-boxshadow">
+              <LinkButton
+                theme="dark"
+                effect="rainbow-boxshadow"
+                href="mailto:kunal.gala16@gmail.com"
+              >
                 Let&apos;s Work
-              </Button>
-              <Button theme="light">Resume</Button>
+              </LinkButton>
+              <LinkButton theme="light" href="/kgala_resume.pdf">
+                Resume
+              </LinkButton>
             </div>
             {/* Hero */}
             <div
@@ -126,15 +133,15 @@ export default async function Home() {
         </section>
 
         {/* Portfolio */}
-        <section>
-          <div className="px-4 max-w-screen-sm lg:max-w-screen-md mx-auto">
+        <section id="portfolio">
+          <div className="px-4 max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto">
             <h1 className="text-accent font-semibold text-lg">Portfolio</h1>
             <h2 className="text-black dark:text-white text-4xl font-bold">
               Checkout my work.
             </h2>
           </div>
           <div
-            className="flex gap-8 overflow-x-scroll no-scrollbar px-8 py-12 [&>*:nth-child(odd)]:rotate-2 [&>*:nth-child(even)]:-rotate-2 snap-x snap-mandatory"
+            className="flex 2xl:justify-center gap-8 overflow-x-scroll no-scrollbar px-8 py-12 [&>*:nth-child(odd)]:rotate-2 [&>*:nth-child(even)]:-rotate-2 snap-x snap-mandatory"
             id="portfolio-container"
           >
             {projects.map((project, index) => (
@@ -176,7 +183,7 @@ export default async function Home() {
           </div>
 
           {/* Navigation */}
-          <div className="flex justify-between px-8 max-w-screen-sm lg:max-w-screen-md mx-auto">
+          <div className="flex justify-between px-8 max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto">
             <PortfolioNavButton direction="prev" />
             <PortfolioNavButton direction="next" />
           </div>

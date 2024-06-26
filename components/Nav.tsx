@@ -9,7 +9,7 @@ import {
   faFile,
   faMusic,
 } from "@fortawesome/free-solid-svg-icons";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 interface NavProps {
   isOpen: boolean;
@@ -18,6 +18,7 @@ interface NavProps {
 
 const Nav: React.FC<NavProps> = ({ isOpen, setIsOpen }) => {
   const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -78,7 +79,11 @@ const Nav: React.FC<NavProps> = ({ isOpen, setIsOpen }) => {
           <DividerLine isOpen={isOpen} />
           <Span isOpen={isOpen}>Portfolio</Span>
         </NavLink>
-        <NavLink href={"/resume"} isOpen={isOpen} setIsOpen={setIsOpen}>
+        <NavLink
+          href={"/kgala_resume.pdf"}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        >
           <Icon isOpen={isOpen}>
             <FontAwesomeIcon icon={faFile} />
           </Icon>
@@ -117,43 +122,57 @@ const NavLink: React.FC<NavLinkProps> = ({
   children,
   isOpen,
   setIsOpen,
-}) => (
-  <li className="nav-li">
-    <Link
-      href={href}
-      className={
-        "group flex items-center justify-center gap-4 font-black text-xl hover:text-accent hover:outline outline-accent outline-1 p-2 rounded-lg hover:bg-accent/10" +
-        " " +
-        `transition-opacity ${isOpen ? "" : "opacity-0 !delay-0"}`
-      }
-      onClick={(event) => {
-        event.preventDefault();
-        const headerOffset = 64;
-        switch (href) {
-          case "/":
-            break;
-          case "#about":
-            const about = document.getElementById("about");
-            if (!about) return;
-            const aboutPosition = about.getBoundingClientRect().top;
-            const offsetPosition =
-              aboutPosition + window.scrollY - headerOffset;
-            window.scrollTo({
-              top: offsetPosition,
-              behavior: "instant",
-            });
-            break;
-          default:
-            break;
+}) => {
+  const router = useRouter();
+
+  return (
+    <li className="nav-li">
+      <Link
+        href={href}
+        className={
+          "group flex items-center justify-center gap-4 font-black text-xl hover:text-accent hover:outline outline-accent outline-1 p-2 rounded-lg hover:bg-accent/10" +
+          " " +
+          `transition-opacity ${isOpen ? "" : "opacity-0 !delay-0"}`
         }
-        setIsOpen(false);
-      }}
-      target={target}
-    >
-      {children}
-    </Link>
-  </li>
-);
+        onClick={(event) => {
+          const headerOffset = 64;
+          switch (href) {
+            case "#about":
+              event.preventDefault();
+              const about = document.getElementById("about");
+              if (!about) break;
+              const aboutPosition = about.getBoundingClientRect().top;
+              const aboutOffsetPosition =
+                aboutPosition + window.scrollY - headerOffset;
+              window.scrollTo({
+                top: aboutOffsetPosition,
+                behavior: "instant",
+              });
+              break;
+            case "#portfolio":
+              event.preventDefault();
+              const portfolio = document.getElementById("portfolio");
+              if (!portfolio) break;
+              const portfolioPosition = portfolio.getBoundingClientRect().top;
+              const portfolioOffsetPosition =
+                portfolioPosition + window.scrollY - headerOffset;
+              window.scrollTo({
+                top: portfolioOffsetPosition,
+                behavior: "instant",
+              });
+              break;
+            default:
+              break;
+          }
+          setIsOpen(false);
+        }}
+        target={target}
+      >
+        {children}
+      </Link>
+    </li>
+  );
+};
 
 interface IconProps {
   isOpen: boolean;
