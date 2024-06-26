@@ -163,7 +163,7 @@ export default async function Home() {
                   {project.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="whitespace-nowrap text-sm rounded py-0.5 px-1.5 border border-gray-700/10 bg-gray-200/30 dark:bg-gray-900/20 dark:text-gray-50/80 hover:bg-gray-200/60 select-none"
+                      className="whitespace-nowrap text-sm rounded py-0.5 px-1.5 border border-gray-700/10 bg-gray-200/30 dark:bg-gray-900/20 dark:text-gray-50/80 hover:bg-gray-200/60 dark:hover:bg-gray-600/60 select-none"
                     >
                       {tag}
                     </span>
