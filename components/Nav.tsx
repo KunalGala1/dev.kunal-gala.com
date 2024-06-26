@@ -9,7 +9,7 @@ import {
   faFile,
   faMusic,
 } from "@fortawesome/free-solid-svg-icons";
-import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { useRouter } from "next/router";
 
 interface NavProps {
   isOpen: boolean;
@@ -28,7 +28,6 @@ const Nav: React.FC<NavProps> = ({ isOpen, setIsOpen }) => {
       if (anchor) {
         const children = anchor.children;
         const svg = children[0] as SVGElement;
-        const div = children[1] as HTMLDivElement;
         const span = children[2] as HTMLSpanElement;
 
         const transitionDelay = `${index * 100 + 500}ms`;
@@ -37,10 +36,6 @@ const Nav: React.FC<NavProps> = ({ isOpen, setIsOpen }) => {
 
         if (svg) {
           svg.style.transitionDelay = transitionDelay;
-        }
-
-        if (div) {
-          // div.style.transitionDelay = transitionDelay;
         }
 
         if (span) {
@@ -62,28 +57,28 @@ const Nav: React.FC<NavProps> = ({ isOpen, setIsOpen }) => {
       id="nav"
     >
       <ul className="px-8 py-4 mt-16 space-y-4">
-        <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
+        <NavLink href={"/"} isOpen={isOpen} setIsOpen={setIsOpen}>
           <Icon isOpen={isOpen}>
             <FontAwesomeIcon icon={faHouse} />
           </Icon>
           <DividerLine isOpen={isOpen} />
           <Span isOpen={isOpen}>Home</Span>
         </NavLink>
-        <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
+        <NavLink href={"#about"} isOpen={isOpen} setIsOpen={setIsOpen}>
           <Icon isOpen={isOpen}>
             <FontAwesomeIcon icon={faBook} />
           </Icon>
           <DividerLine isOpen={isOpen} />
           <Span isOpen={isOpen}>About</Span>
         </NavLink>
-        <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
+        <NavLink href={"#portfolio"} isOpen={isOpen} setIsOpen={setIsOpen}>
           <Icon isOpen={isOpen}>
             <FontAwesomeIcon icon={faBriefcase} />
           </Icon>
           <DividerLine isOpen={isOpen} />
           <Span isOpen={isOpen}>Portfolio</Span>
         </NavLink>
-        <NavLink href={"#"} isOpen={isOpen} setIsOpen={setIsOpen}>
+        <NavLink href={"/resume"} isOpen={isOpen} setIsOpen={setIsOpen}>
           <Icon isOpen={isOpen}>
             <FontAwesomeIcon icon={faFile} />
           </Icon>
@@ -91,7 +86,7 @@ const Nav: React.FC<NavProps> = ({ isOpen, setIsOpen }) => {
           <Span isOpen={isOpen}>Resume</Span>
         </NavLink>
         <NavLink
-          href={"#"}
+          href={"https://kunal-gala.com/"}
           isOpen={isOpen}
           setIsOpen={setIsOpen}
           target={"_blank"}
@@ -131,7 +126,26 @@ const NavLink: React.FC<NavLinkProps> = ({
         " " +
         `transition-opacity ${isOpen ? "" : "opacity-0 !delay-0"}`
       }
-      onClick={() => {
+      onClick={(event) => {
+        event.preventDefault();
+        const headerOffset = 64;
+        switch (href) {
+          case "/":
+            break;
+          case "#about":
+            const about = document.getElementById("about");
+            if (!about) return;
+            const aboutPosition = about.getBoundingClientRect().top;
+            const offsetPosition =
+              aboutPosition + window.scrollY - headerOffset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "instant",
+            });
+            break;
+          default:
+            break;
+        }
         setIsOpen(false);
       }}
       target={target}

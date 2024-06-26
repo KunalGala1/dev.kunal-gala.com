@@ -108,7 +108,10 @@ export default async function Home() {
               <Button theme="light">Resume</Button>
             </div>
             {/* Hero */}
-            <div className="flex flex-col items-center gap-8 justify-center py-16">
+            <div
+              id="about"
+              className="flex flex-col items-center gap-8 justify-center py-16"
+            >
               <Image
                 src={"/hero.jpg"}
                 width={300}
