@@ -39,3 +39,6 @@ next-env.d.ts
 Dockerfile
 .dockerignore
 compose.yaml
+
+# sst
+.sst
