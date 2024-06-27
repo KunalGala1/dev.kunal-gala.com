@@ -31,7 +31,7 @@ const Header = () => {
           {/* Icons */}
           <ul className="flex gap-5">
             {/* Search */}
-            <li>
+            {/* <li>
               <button className="relative z-10">
                 <svg viewBox="0 0 159 162" width={20} height={20} fill="none">
                   <path
@@ -51,7 +51,7 @@ const Header = () => {
                   />
                 </svg>
               </button>
-            </li>
+            </li> */}
             <WebsiteTheme />
             <Burger isOpen={isOpen} setIsOpen={setIsOpen} />
           </ul>

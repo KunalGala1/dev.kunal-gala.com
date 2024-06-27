@@ -1,11 +1,11 @@
 /// <reference path="./.sst/platform/config.d.ts" />
-
 export default $config({
   app(input) {
     return {
       name: "dev-kunal-gala",
       removal: input?.stage === "production" ? "retain" : "remove",
       home: "aws",
+      providers: { cloudflare: true },
     };
   },
   async run() {
@@ -13,8 +13,9 @@ export default $config({
       domain: {
         name: "dev.kunal-gala.com",
         redirects: ["www.dev.kunal-gala.com"],
-        dns: false,
-        cert: "arn:aws:acm:us-east-1:975049885293:certificate/0c110bb6-6929-49a4-b188-923ed253f081",
+        dns: sst.cloudflare.dns({
+          zone: "5d4afab2963be5a2510d240d45406ab6",
+        }),
       },
     });
   },
