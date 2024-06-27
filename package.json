@@ -1,12 +1,16 @@
 {
-  "name": "dev.kunal-gala.com",
+  "name": "dev-kunal-gala",
   "version": "0.1.0",
   "private": true,
   "scripts": {
+<<<<<<< HEAD
     "dev": "sst bind next dev",
+=======
+>>>>>>> 943f242236923360dc9f5bab269adf1d7ab4ac1e
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
@@ -21,6 +25,7 @@
     "react": "^18",
     "react-dom": "^18",
     "sanity": "^3.46.1",
+    "sst": "ion",
     "swiper": "^11.1.4",
     "typeit-react": "^2.7.1"
   },

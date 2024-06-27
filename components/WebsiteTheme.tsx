@@ -20,7 +20,7 @@ const WebsiteTheme = () => {
     );
   }
 
-  if (theme === "light") {
+  if (theme !== "dark") {
     // Sun
     return (
       <li>
@@ -48,7 +48,7 @@ const WebsiteTheme = () => {
         </button>
       </li>
     );
-  } else if (theme === "dark") {
+  } else {
     // Moon
     return (
       <li>
