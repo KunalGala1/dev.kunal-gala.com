@@ -1,12 +1,12 @@
 {
-  "name": "dev.kunal-gala.com",
+  "name": "dev-kunal-gala",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
@@ -21,6 +21,7 @@
     "react": "^18",
     "react-dom": "^18",
     "sanity": "^3.46.1",
+    "sst": "ion",
     "swiper": "^11.1.4",
     "typeit-react": "^2.7.1"
   },
