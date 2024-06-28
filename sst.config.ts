@@ -1,27 +1,3 @@
-<<<<<<< HEAD
-import { SSTConfig } from "sst";
-import { Service } from "sst/constructs";
-
-export default {
-  config(_input) {
-    return {
-      name: "devkunal-galacom",
-      region: "us-east-1",
-    };
-  },
-  stacks(app) {
-    app.stack(function Site({ stack }) {
-      const service = new Service(stack, "service", {
-        port: 3000,
-      });
-
-      stack.addOutputs({
-        ServiceUrl: service.url,
-      });
-    });
-  },
-} satisfies SSTConfig;
-=======
 /// <reference path="./.sst/platform/config.d.ts" />
 export default $config({
   app(input) {
@@ -44,4 +20,3 @@ export default $config({
     });
   },
 });
->>>>>>> 943f242236923360dc9f5bab269adf1d7ab4ac1e
