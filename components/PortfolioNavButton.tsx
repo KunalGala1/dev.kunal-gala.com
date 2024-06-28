@@ -10,6 +10,7 @@ const PortfolioNavButton = ({ direction }: PortfolioNavButtonType) => {
   const [carouselPosition, setCarouselPosition] = useState("start");
 
   useEffect(() => {
+    const debouncedHandleScroll = debounce(handleScroll, 300); // debounce the handleScroll function
     const p_Container = document.getElementById("portfolio-container");
     const prevBtn = document.getElementById("portfolio-container-prev-btn");
     const nextBtn = document.getElementById("portfolio-container-next-btn");
@@ -48,8 +49,6 @@ const PortfolioNavButton = ({ direction }: PortfolioNavButtonType) => {
     // element is not scrolled to either left or right
     setCarouselPosition("middle");
   };
-
-  const debouncedHandleScroll = debounce(handleScroll, 300); // debounce the handleScroll function
 
   return (
     <button
