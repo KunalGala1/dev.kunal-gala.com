@@ -44,3 +44,6 @@ Dockerfile
 
 # open-next
 /.open-next/
+
+# GitHub Workflows
+/.github/
