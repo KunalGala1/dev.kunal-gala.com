@@ -40,11 +40,7 @@ Dockerfile
 .dockerignore
 
 # sst
-<<<<<<< HEAD
-.sst
-=======
 .sst
 
 # open-next
 .open-next
->>>>>>> 943f242236923360dc9f5bab269adf1d7ab4ac1e
