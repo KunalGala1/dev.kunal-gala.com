@@ -5,21 +5,18 @@ export default $config({
       name: "dev-kunal-gala",
       removal: input?.stage === "production" ? "retain" : "remove",
       home: "aws",
-      // providers: { cloudflare: true },
+      providers: { cloudflare: true },
     };
   },
   async run() {
-    new sst.aws.Nextjs(
-      "MyWeb"
-      /*
-      {
-        domain: {
-          name: "dev.kunal-gala.com",
-          redirects: ["www.dev.kunal-gala.com"],
-          dns: sst.cloudflare.dns(),
-        },
-      }
-      */
-    );
+    new sst.aws.Nextjs("MyWeb", {
+      domain: {
+        name: "dev.kunal-gala.com",
+        redirects: ["www.dev.kunal-gala.com"],
+        dns: sst.cloudflare.dns({
+          zone: "5d4afab2963be5a2510d240d45406ab6",
+        }),
+      },
+    });
   },
 });

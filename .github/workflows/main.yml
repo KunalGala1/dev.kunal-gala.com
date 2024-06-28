@@ -24,8 +24,11 @@ jobs:
         with:
           node-version: "18" # or your preferred Node.js version
 
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
       - name: Install SST
         run: curl -fsSL https://ion.sst.dev/install | bash
