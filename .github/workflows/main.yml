@@ -23,12 +23,19 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18" # or your preferred Node.js version
-
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Cache Next.js Build
+        uses: actions/cache@v3
+        with:
+          path: |
+            .next/
+            .open-next/
+            .sst/
+          key: cache-nextjs
+          restore-keys: |
+            cache-nextjs
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Install SST
         run: curl -fsSL https://ion.sst.dev/install | bash
