@@ -9,6 +9,12 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      CLOUDFLARE_DEFAULT_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -18,28 +24,8 @@ jobs:
         with:
           node-version: "18"
 
-      #   - name: Install dependencies
-      #     run: npm ci
-
-      #   - name: Build Next.js app
-      #     run: npm run build
-
       - name: Install SST
-        run: npm install -g sst
-
-      - name: Configure AWS credentials
-        run: |
-          mkdir -p ~/.aws
-          echo "[default]
-          aws_access_key_id = ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key = ${{ secrets.AWS_SECRET_ACCESS_KEY }}" > ~/.aws/credentials
-          chmod 600 ~/.aws/credentials
+        run: curl -fsSL https://ion.sst.dev/install | bash
 
       - name: Deploy with SST
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_DEFAULT_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_DEFAULT_ACCOUNT_ID }}
         run: sst deploy --stage prod
-
-      - name: Remove AWS credentials
-        run: rm -rf ~/.aws
