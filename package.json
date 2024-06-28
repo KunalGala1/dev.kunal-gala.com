@@ -3,10 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-<<<<<<< HEAD
-    "dev": "sst bind next dev",
-=======
->>>>>>> 943f242236923360dc9f5bab269adf1d7ab4ac1e
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
