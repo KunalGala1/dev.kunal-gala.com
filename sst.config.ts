@@ -15,6 +15,7 @@ export default $config({
         redirects: ["www.dev.kunal-gala.com"],
         dns: sst.cloudflare.dns({
           zone: "5d4afab2963be5a2510d240d45406ab6",
+          transform: {},
         }),
       },
     });
