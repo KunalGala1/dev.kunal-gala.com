@@ -40,7 +40,7 @@ Dockerfile
 .dockerignore
 
 # sst
-.sst
+/.sst/
 
 # open-next
-.open-next
+/.open-next/
