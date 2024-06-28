@@ -13,15 +13,7 @@ export default $config({
       domain: {
         name: "dev.kunal-gala.com",
         redirects: ["www.dev.kunal-gala.com"],
-        dns: sst.cloudflare.dns({
-          zone: "5d4afab2963be5a2510d240d45406ab6",
-          transform: {
-            record(args) {
-              args.allowOverwrite = true;
-              console.log("DNS Record Args:", args);
-            },
-          },
-        }),
+        dns: sst.cloudflare.dns(),
       },
     });
   },
