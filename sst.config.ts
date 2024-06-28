@@ -18,6 +18,7 @@ export default $config({
           transform: {
             record(args) {
               args.allowOverwrite = true;
+              console.log("DNS Record Args:", args);
             },
           },
         }),
